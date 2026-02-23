@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Donor Dashboard</title>
+    <style>
+        body {
+            background: linear-gradient(to right, #43cea2, #185a9d);
+            font-family: Arial, sans-serif;
+            color: white;
+            text-align: center;
+        }
+        h2, h3, h4 { margin-top: 30px; }
+        form { margin: 20px auto; display: inline-block; text-align: left; }
+        input[type="file"], textarea, select, button {
+            display: block; margin: 10px 0; padding: 10px; border-radius: 8px; border: none;
+        }
+        button { background-color: #ff512f; color: white; cursor: pointer; }
+        button:hover { background-color: #dd2476; }
+        img { margin-top: 10px; border-radius: 10px; max-width: 200px; }
+        .message { margin-top: 20px; font-weight: bold; }
+        ul { list-style: none; padding: 0; text-align: left; display: inline-block; }
+        .chat-button { background-color: #0d3b66; padding: 6px 12px; border-radius: 8px; color: white; text-decoration: none; }
+        .chat-button:hover { background-color: #1a73e8; }
+    </style>
+</head>
+<body>
+    <h2>Welcome, {{ current_user }} (Donor)</h2>
+    <p><a href="{{ url_for('logout') }}" style="color: white;">Logout</a></p>
+
+    <h3>Upload Food Item</h3>
+    <form method="post" enctype="multipart/form-data">
+        <input type="file" name="file" required>
+        <button type="submit">Upload</button>
+    </form>
+
+    {% if filename %}
+        <h4>Uploaded Image</h4>
+        <img src="{{ url_for('static', filename='uploads/' + filename) }}" alt="Uploaded Food">
+    {% endif %}
+
+    {% if freshness %}
+        <div class="message">
+            Freshness Result: {{ freshness }}<br>
+            {% if message %}{{ message }}{% endif %}
+        </div>
+    {% endif %}
+
+    <h3>Chat with Receivers</h3>
+    {% if users %}
+        <ul>
+        {% for u in users %}
+            <li>
+                Receiver: {{ u }}
+                <a href="{{ url_for('chat', other_user=u) }}" class="chat-button">Chat</a>
+            </li>
+        {% endfor %}
+        </ul>
+    {% else %}
+        <p>No receivers available yet.</p>
+    {% endif %}
+</body>
+</html>

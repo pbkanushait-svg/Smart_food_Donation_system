@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Smart Food Donation System</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #f6d365, #fda085);
+            margin: 0;
+            padding: 0;
+            text-align: center;
+            color: #333;
+        }
+        .container {
+            max-width: 700px;
+            margin: 50px auto;
+            background: rgba(255,255,255,0.95);
+            padding: 30px;
+            border-radius: 20px;
+            box-shadow: 0 8px 25px rgba(0,0,0,0.3);
+        }
+        h1 { color: #1a1a1a; margin-bottom: 20px; }
+        p { font-size: 18px; margin-bottom: 30px; }
+        .buttons input {
+            padding: 12px 25px;
+            margin: 10px;
+            border-radius: 12px;
+            border: none;
+            font-weight: bold;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+        .btn-register { background-color: #0d3b66; color: white; }
+        .btn-register:hover { background-color: #1a73e8; }
+        .btn-login { background-color: #ff512f; color: white; }
+        .btn-login:hover { background-color: #dd2476; }
+        .home-img { max-width: 100%; margin-top: 20px; border-radius: 15px; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Smart Food Donation System</h1>
+        <p>Donate food, check freshness, and chat with receivers in real-time!</p>
+
+        <div class="buttons">
+            <a href="{{ url_for('register') }}"><input type="button" value="Register as Donor/Receiver" class="btn-register"></a>
+            <a href="{{ url_for('login') }}"><input type="button" value="Login" class="btn-login"></a>
+        </div>
+
+        <img src="{{ url_for('static', filename='uploads/food_sample.jpg') }}" alt="Food Sample" class="home-img">
+    </div>
+</body>
+</html>

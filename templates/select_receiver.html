@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Select Receiver</title>
+    <style>
+        body {background: linear-gradient(to right, #a1c4fd, #c2e9fb); font-family: Arial; text-align: center;}
+        .box {background: white; padding: 20px; border-radius: 15px; display: inline-block; margin-top: 100px;}
+        select, button {padding: 10px; border-radius: 10px; margin: 10px;}
+        button {background-color: #28a745; color: white; border: none;}
+        button:hover {background-color: #218838;}
+    </style>
+</head>
+<body>
+    <div class="box">
+        <h2>Select a Receiver</h2>
+        <form method="POST" action="/choose_receiver">
+            <select name="receiver" required>
+                {% for r in receivers %}
+                    <option value="{{ r }}">{{ r }}</option>
+                {% endfor %}
+            </select>
+            <button type="submit">Start Chat</button>
+        </form>
+    </div>
+</body>
+</html>
