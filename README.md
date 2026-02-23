@@ -17,7 +17,7 @@ A web-based platform that connects food donors with receivers to reduce food was
 - Flask
 - HTML
 - CSS
-- SQLite (if used)
+
 
 ## 📂 Project Structure
 
