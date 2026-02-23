@@ -29,3 +29,14 @@ Smart_food_Donation_system/
 ## ▶ How to Run
 
 1. Install dependencies:
+pip install flask
+
+2. Run the application:
+  app.py 
+3. Open browser
+
+
+## 🎯 Objective
+
+To reduce food wastage and create a bridge between donors and receivers using a simple web platform.
+
